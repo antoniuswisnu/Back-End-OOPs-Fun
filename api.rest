@@ -1,0 +1,153 @@
+# GET Question - Mendapatkan semua pertanyaan
+GET http://localhost:8080/dashboard/create-question
+
+### GET Class - Mendapatkan kelas yang sudah dibuat
+GET http://localhost:8080/dashboard/create-class
+
+### GET Label - Mendapatkan label quiz
+GET http://localhost:8080/dashboard/label
+
+### POST Label Quiz - Membuat label quiz dari sisi teacher
+POST http://localhost:8080/dashboard/create-question/createLabel
+Content-Type: application/json
+
+{
+    "label": "inheritance 3"
+}
+
+### POST Create Class - Membuat kelas dari sisi teacher
+POST http://localhost:8080/dashboard/create-class/createclass
+Content-Type: application/json
+
+{
+    "class": "ASD PL1AA"
+}
+
+### POST Register - Melakukan pendaftaran user
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "email" : "teacher1@email.com",
+    "username": "teacher1",
+    "password": "teacher123",
+    "confirmPassword": "teacher123",
+    "roles" : "teacher"
+}
+
+### POST Login - Melakukan login user
+POST http://localhost:8080/login 
+Content-Type: application/json
+
+{
+    "email" : "teacher1@email.com",
+    "password": "teacher123"
+}
+
+### POST Create Question - Membuat pertanyaan dari sisi teacher
+POST http://localhost:8080/dashboard/create-question/create
+Content-Type: application/json
+
+{
+    "question" : "siapa penemu telepon?",
+    "option1" : "jawaban A",
+    "option2" : "jawaban B",
+    "option3" : "jawaban C",
+    "option4" : "jawaban D",
+    "option5" : "jawaban E",
+    "correctAnswer" : "A",
+    "label" : "Inheritance",
+    "keyLabel" : "642e6e86865d8a1ea932d24d"
+}
+
+### POST Get Question - Mendapatkan pertanyaan berdasarkan label
+POST http://localhost:8080/dashboard/create-question/getquestions
+Content-Type: application/json
+
+{
+    "key" : "642e6ea3865d8a1ea932d250"
+}
+
+### POST Create Quiz - Membuat quiz dari sisi teacher berdasarkan kelas
+POST http://localhost:8080/teacher/class/quiz/createquiz
+Content-Type: application/json
+
+{
+    "keyClass": "645a1ff6e978070a8ede9539",
+    "nameQuiz": "PSD Bagian 1"
+}
+
+### POST Get Quiz - Mendapatkan quiz berdasarkan kelas
+POST http://localhost:8080/teacher/class/quiz
+Content-Type: application/json
+
+{
+    "key" : "647d86c7463ba9744f08e823"
+}
+
+### POST Add Question - Menambahkan pertanyaan ke quiz
+POST http://localhost:8080/teacher/class/quiz/question/listlabel/listquestion/addquestion
+Content-Type: application/json
+
+{
+    "keyQuestion" : "6460ca41bb3864c5ce35e3e6",
+    "keyQuiz": "6460cd6c9257a4ae2949b5b0"
+}
+
+### POST Token - Memasukkan token kelas dari sisi student
+POST http://localhost:8080/student/inputtoken/submit
+Content-Type: application/json
+
+{
+    "id":"647d8790463ba9744f08e84f",
+    "token":"c98DyG"
+}
+
+### POST Question - Mendapatkan pertanyaan berdasarkan keyQuiz
+POST http://localhost:8080/teacher/class/quiz/question
+Content-Type: application/json
+
+{
+    "keyQuiz": "647dab772ffaa11b2d56d684"
+}
+
+### POST Start Quiz - Memulai quiz berdasarkan id quiz
+POST http://localhost:8080/student/class/quiz/started
+Content-Type: application/json
+
+{
+    "key": "647dab772ffaa11b2d56d684"
+}
+
+### POST Submit Answer - Mengirim jawaban dari sisi student
+POST http://localhost:8080/student/search/grade
+Content-Type: application/json
+
+{
+    "userID": "648c24b164b51ed366aa78a1",
+    "quizID": "648c285e64b51ed366aa78c0",
+    "grade": "90"
+}
+
+### POST Search Quiz - Mencari quiz berdasarkan nama quiz
+POST http://localhost:8080/student/search/thequiz
+Content-Type: application/json
+
+{
+    "userID": "647d8790463ba9744f08e84f",
+    "quizID": "647dab7e2ffaa11b2d56d689"
+}
+
+### POST Leaderboard - Mendapatkan leaderboard berdasarkan kelas
+POST http://localhost:8080/student/leaderboard
+Content-Type: application/json
+
+{
+    "keyClass": "648c23e464b51ed366aa7870"
+}
+
+### DELETE Question - Menghapus pertanyaan berdasarkan id
+DELETE http://localhost:8080/dashboard/create-question/delete/6459d160469fc51005b00418
+
+### DELETE Label - Menghapus label berdasarkan id
+DELETE http://localhost:8080/dashboard/create-question/deletelabel/642e6ecd865d8a1ea932d256
